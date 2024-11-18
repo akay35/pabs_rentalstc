@@ -110,10 +110,10 @@ def get_weather_data(city):
 
         # Burada datetime'ı sadece gösterim için ekliyoruz
         # datetime_str = f"{date_str} {hour}:00"  # Tarih ve saat bilgisini birleştiriyoruz
-        date_str = forecast_datetime.strftime('%Y-%m-%d')
+        # date_str = forecast_datetime.strftime('%Y-%m-%d')
 
         weather_data.append({
-            "Tarih_": forecast_datetime.strftime('%Y-%m-%d'),
+            # "Tarih_": forecast_datetime.strftime('%Y-%m-%d'),
             # "Tarih saat": datetime_str,
             "temp": temp,                    #model sıcaklığı
             "Sıcaklık": sic,
@@ -187,5 +187,5 @@ if st.button("Tahmin Yap"):
         result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
         # Dataframe'i Streamlit ile yazdırıyoruz
-st.dataframe(result[["Tarih_", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
+st.dataframe(result[["Tarih", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
 # st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Kiralama tahmini'}))
