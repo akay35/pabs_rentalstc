@@ -27,25 +27,25 @@ def get_season(month):
     else:
         return 4  # Sonbahar
 
-# def get_weathersit1(weather_condition):
-#     if weather_condition in ['clear sky', 'few clouds', 'partly cloudy', 'mostly clear', 'light clouds']:
-#         return 1
-#     elif weather_condition in ['mist', 'overcast clouds', 'broken clouds', 'cloudy', 'fog', 'haze']:
-#         return 2
-#     elif weather_condition in ['light rain', 'scattered clouds', 'light snow', 'moderate rain']:
-#         return 3
-#     else:
-#         return 4
-
 def get_weathersit1(weather_condition):
     if weather_condition in ['clear sky', 'few clouds', 'partly cloudy', 'mostly clear', 'light clouds']:
-        return 1, "Açık Hava"  # clear sky, few clouds vb. -> Açık Hava
+        return 1
     elif weather_condition in ['mist', 'overcast clouds', 'broken clouds', 'cloudy', 'fog', 'haze']:
-        return 2, "Sisli ve Bulutlu"  # mist, overcast clouds vb. -> Sisli ve Bulutlu
+        return 2
     elif weather_condition in ['light rain', 'scattered clouds', 'light snow', 'moderate rain']:
-        return 3, "Hafif Yağış"  # light rain, scattered clouds vb. -> Hafif Yağış
+        return 3
     else:
-        return 4, "Şiddetli Yağış"  # diğer durumlar -> Şiddetli Yağış
+        return 4
+
+# def get_weathersit1(weather_condition):
+#     if weather_condition in ['clear sky', 'few clouds', 'partly cloudy', 'mostly clear', 'light clouds']:
+#         return 1, "Açık Hava"  # clear sky, few clouds vb. -> Açık Hava
+#     elif weather_condition in ['mist', 'overcast clouds', 'broken clouds', 'cloudy', 'fog', 'haze']:
+#         return 2, "Sisli ve Bulutlu"  # mist, overcast clouds vb. -> Sisli ve Bulutlu
+#     elif weather_condition in ['light rain', 'scattered clouds', 'light snow', 'moderate rain']:
+#         return 3, "Hafif Yağış"  # light rain, scattered clouds vb. -> Hafif Yağış
+#     else:
+#         return 4, "Şiddetli Yağış"  # diğer durumlar -> Şiddetli Yağış
 
 def sin_cos_encoding(df, columns):
     for col in columns:
@@ -132,7 +132,7 @@ def get_weather_data(city):
             "Nem": humidity,
             "windspeed": windspeed,
             "Rüzgar": ruzgarg,
-            # "Hava": weather_condition,
+            "Hava": weather_condition,
             "hr": hour,
             "Saat": hour,
             "mnth": month,
@@ -167,7 +167,7 @@ def make_predictions(city):
     processed_data = preprocess_live_data(live_data, holiday_data)
     predictions = final_model.predict(processed_data)
     live_data['predicted_rentals'] = predictions
-    live_data['Hava'] = live_data['Hava'].apply(lambda x: get_weathersit1(x)[1])
+    # live_data['Hava'] = live_data['Hava'].apply(lambda x: get_weathersit1(x)[1])
     return live_data
 ####################################################################################################
 ########## YAZDIRMA AŞAMASI
