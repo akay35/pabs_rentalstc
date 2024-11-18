@@ -95,7 +95,7 @@ def get_weather_data(city):
     for entry in forecast_list:
         forecast_datetime = datetime.strptime(entry['dt_txt'], '%Y-%m-%d %H:%M:%S')
         hour = forecast_datetime.hour
-        weekday = forecast_datetime.weekday()
+        weekday1 = forecast_datetime.weekday()
         month = forecast_datetime.month
         date_str = forecast_datetime.strftime('%d/%m/%Y')  # Gün/Ay/Yıl formatında tarih
 
@@ -125,7 +125,7 @@ def get_weather_data(city):
             "hr": hour,
             "Saat": hour,
             "mnth": month,
-            "weekday": weekday_mapping[weekday],
+            "weekday": weekday_mapping[weekday1],
             "season": get_season(month),
             "weathersit": weathersit
         })
