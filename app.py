@@ -91,9 +91,9 @@ def get_weather_data(city):
 
         weather_condition = entry['weather'][0]['description']
         weathersit = get_weathersit1(weather_condition)
-        sic = entry['main']['temp']
-        temp = (sic - (-8)) / (39 - (-8))  #normalize edilmiş sıcaklık modelimize uygun değişken adı
-        humidity = entry['main']['humidity']
+        sic = entry['main']['temp']          #gerçek sıcaklık
+        temp = (sic - (-8)) / (39 - (-8))    #modele uygun ismi ile normalize edilmiş sıcaklık, minmax sonrası modelimize sokulacak
+        humidity = entry['main']['humidity'] #gerçek nem
         wind_speed = entry['wind']['speed']
         windspeed_scaled = wind_speed / 67
 
@@ -102,9 +102,10 @@ def get_weather_data(city):
 
         weather_data.append({
             "Tarih saat": datetime_str,
-            "temp": temp,
+            "temp": temp,                    #model sıcaklığı
             "Sıcaklık": sic,
-            "hum": humidity,
+            "hum": humidity,                 #model nemi
+            "Nem": humidity,
             "windspeed": windspeed_scaled,
             "hr": hour,
             "mnth": month,
@@ -154,4 +155,4 @@ if st.button("Tahmin Yap"):
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
