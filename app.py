@@ -154,6 +154,5 @@ if st.button("Tahmin Yap"):
         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
-        result['Nem'] = result['hum'].apply(lambda x: f"{x}%")   #Nem değişkeninin önüne % işareti ekledik
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem💧', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
