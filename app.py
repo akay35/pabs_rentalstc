@@ -285,9 +285,12 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
       
 # Kullanıcıya hava durumu bilgisi ve animasyon önerisi
-st.markdown(f"""
-    <div style="text-align: center; font-size: 24px;">
-        <strong>Hava Durumu:</strong> {result['weather'][0]}<br>
-        <strong>Güncel Saat:</strong> {result['hour'][0]}<br>
-    </div>
-""", unsafe_allow_html=True)
+# Streamlit ile hava durumu ve saat bilgisi gösterme
+if result is not None:
+    st.markdown(f"""
+        <div style="text-align: center; font-size: 24px;">
+            <strong>Hava Durumu:</strong> {result['Hava'].iloc[0]}<br>
+            <strong>Güncel Saat:</strong> {result['Saat'].iloc[0]}<br>
+        </div>
+    """, unsafe_allow_html=True)
+
