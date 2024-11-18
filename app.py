@@ -142,14 +142,16 @@ weekday_abbr = {
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-        # 'weekday' sütununu kısaltmalarla değiştiriyoruz
+        # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
         result['weekdays'] = result['weekday'].map(weekday_abbr)
 
+        # Dataframe'i Streamlit ile yazdırıyoruz
+        st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
-if st.button("Tahmin Yap"):
-    result = make_predictions(city)
-    if result is not None:
-       st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+# if st.button("Tahmin Yap"):
+#     result = make_predictions(city)
+#     if result is not None:
+#        st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
 
 # if st.button("Tahmin Yap"):
