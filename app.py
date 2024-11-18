@@ -185,7 +185,7 @@ if st.button("Tahmin Yap"):
         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
-        result['Kiralama tahmini'] = np.round(result['predicted_rentals']).astype(int)
+        result['Tahmin'] = np.round(result['predicted_rentals']).astype(int)
         result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
