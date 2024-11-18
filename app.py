@@ -45,10 +45,7 @@ def sin_cos_encoding(df, columns):
     return df
 
 def preprocess_live_data(live_data):
-    sincos = ["hr", "mnth", "weekday"]
-    live_data = sin_cos_encoding(live_data, sincos)
-    # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
-        # 'weekday' değerlerini 1-7 arasına dönüştürmek için
+
     weekday_mapping = {
         0: 1,  # Pazar -> 1
         1: 2,  # Pazartesi -> 2
@@ -61,7 +58,11 @@ def preprocess_live_data(live_data):
 
     live_data["weekday"] = live_data["weekday"].map(weekday_mapping)
     #pazar:1, pazartesi:2, salı:3, çarşamba:4, perşembe:5, cuma:6, cumartesi:7
-    
+
+    sincos = ["hr", "mnth", "weekday"]
+    live_data = sin_cos_encoding(live_data, sincos)
+    # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
+
     scaler = MinMaxScaler()
     y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
     live_data[y_num_cols] = scaler.fit_transform(live_data[y_num_cols])
