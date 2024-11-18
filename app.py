@@ -105,7 +105,7 @@ def get_weather_data(city):
             "temp": temp,                    #model sıcaklığı
             "Sıcaklık": sic,
             "hum": humidity,                 #model nemi
-            "Nem": humidity,
+            "Nem": humidity.apply(lambda x: f"{x}%"),
             "windspeed": windspeed_scaled,
             "hr": hour,
             "mnth": month,
