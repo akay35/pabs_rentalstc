@@ -44,8 +44,13 @@ def sin_cos_encoding(df, columns):
         df[f'{col}_cos'] = np.cos(2 * np.pi * df[col] / max_val)
     return df
 
-def preprocess_live_data(live_data):
-
+def preprocess_live_data(live_data, holiday_data):
+    live_data['Tarih saat'] = pd.to_datetime(live_data['Tarih saat'], format='%d/%m/%Y %H:%M')
+    live_data['Tarih'] = live_data['Tarih saat'].dt.strftime('%d/%m/%Y')
+    
+    # holiday ve workingday bilgilerini holiday_data ile güncelliyoruz
+    live_data['holiday'] = live_data['Tarih'].apply(lambda x: 1 if x in holiday_data else 0)
+    live_data['workingday'] = live_data['holiday'].apply(lambda x: 0 if x == 1 else 1)
 
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
@@ -113,19 +118,33 @@ def get_weather_data(city):
             "mnth": month,
             "weekday": weekday_mapping[weekday],
             "season": get_season(month),
-            "holiday": 0,
-            "workingday": 1 if humidity >= 50 else 0,
             "weathersit": weathersit
         })
     return pd.DataFrame(weather_data)
+###################################################################################
 
+def get_holiday_data():
+    today = datetime.now()
+    url = f"https://calendarific.com/api/v2/holidays?api_key={HOLIDAY_API_KEY}&country=TR&year={today.year}"
+    response = requests.get(url)
+    if response.status_code != 200:
+        print(f"API Hatası: {response.status_code}")
+        return []
+
+    data = response.json()
+    holidays = [holiday['date']['iso'][:10] for holiday in data['response']['holidays']]  # YYYY-MM-DD formatında tarih
+    return holidays
+    
+###################################################################################
 def make_predictions(city):
     live_data = get_weather_data(city)
     if live_data is None:
         st.error("Veri alınamadı!")
         return None
 
-    processed_data = preprocess_live_data(live_data)
+    holiday_data = get_holiday_data()
+    
+    processed_data = preprocess_live_data(live_data, holiday_data)
     predictions = final_model.predict(processed_data)
     live_data['predicted_rentals'] = predictions
     return live_data
