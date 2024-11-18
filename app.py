@@ -95,6 +95,7 @@ def get_weather_data(city):
         temp = (sic - (-8)) / (39 - (-8))    #modele uygun ismi ile normalize edilmiş sıcaklık, minmax sonrası modelimize sokulacak
         humidity = entry['main']['humidity'] #gerçek nem
         ruzgar = entry['wind']['speed']
+        ruzgarg = ruzgar * 3.6
         windspeed = ruzgar / 67
 
         # Burada datetime'ı sadece gösterim için ekliyoruz
@@ -107,7 +108,7 @@ def get_weather_data(city):
             "hum": humidity,                 #model nemi
             "Nem": humidity,
             "windspeed": windspeed,
-            "Rüzgar": ruzgar,
+            "Rüzgar": ruzgarg,
             "hr": hour,
             "mnth": month,
             "weekday": weekday_mapping[weekday],
