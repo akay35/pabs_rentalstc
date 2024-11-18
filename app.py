@@ -29,13 +29,13 @@ def get_season(month):
 
 def get_weathersit1(weather_condition):
     if weather_condition in ['clear sky', 'few clouds', 'partly cloudy', 'mostly clear', 'light clouds']:
-        return 1
+        return 1, "Açık Hava"  # clear sky, few clouds vb. -> Açık Hava
     elif weather_condition in ['mist', 'overcast clouds', 'broken clouds', 'cloudy', 'fog', 'haze']:
-        return 2
+        return 2, "Sisli ve Bulutlu"  # mist, overcast clouds vb. -> Sisli ve Bulutlu
     elif weather_condition in ['light rain', 'scattered clouds', 'light snow', 'moderate rain']:
-        return 3
+        return 3, "Hafif Yağış"  # light rain, scattered clouds vb. -> Hafif Yağış
     else:
-        return 4
+        return 4, "Şiddetli Yağış"  # diğer durumlar -> Şiddetli Yağış
 
 def sin_cos_encoding(df, columns):
     for col in columns:
@@ -157,6 +157,7 @@ def make_predictions(city):
     processed_data = preprocess_live_data(live_data, holiday_data)
     predictions = final_model.predict(processed_data)
     live_data['predicted_rentals'] = predictions
+    live_data['Hava'] = live_data['Hava'].apply(lambda x: get_weathersit1(x)[1])
     return live_data
 ####################################################################################################
 ########## YAZDIRMA AŞAMASI
