@@ -17,6 +17,55 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # st.title("Bisiklet Kiralama Tahmin Uygulaması")
 # city = st.text_input("Şehir Adı", "Izmir")
 
+
+st.markdown("""
+    <style>
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3E8E41;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6A9E3F;
+            text-align: center;
+            font-style: italic;
+            font-family: 'Arial', sans-serif;
+        }
+        /* Dinamik Arka Plan Animasyonu */
+        body {
+            animation: changeBackground 20s infinite;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 20%;
+            color: white;
+        }
+
+        @keyframes changeBackground {
+            0% {
+                background-image: url('https://www.w3schools.com/w3images/fjords.jpg'); /* Güneşli hava */
+            }
+            25% {
+                background-image: url('https://www.w3schools.com/w3images/mountains.jpg'); /* Bulutlu hava */
+            }
+            50% {
+                background-image: url('https://www.w3schools.com/w3images/forest.jpg'); /* Yağmurlu hava */
+            }
+            75% {
+                background-image: url('https://www.w3schools.com/w3images/forest.jpg'); /* Sisli hava */
+            }
+            100% {
+                background-image: url('https://www.w3schools.com/w3images/fjords.jpg'); /* Güneşli hava */
+            }
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
 st.markdown("""
     <style>
     .title {
@@ -235,3 +284,10 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         # Dataframe'i Streamlit ile yazdırıyoruz
         st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
       
+# Kullanıcıya hava durumu bilgisi ve animasyon önerisi
+st.markdown(f"""
+    <div style="text-align: center; font-size: 24px;">
+        <strong>Hava Durumu:</strong> {result['weather'][0]}<br>
+        <strong>Güncel Saat:</strong> {result['hour'][0]}<br>
+    </div>
+""", unsafe_allow_html=True)
