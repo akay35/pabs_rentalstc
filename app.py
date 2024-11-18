@@ -29,13 +29,13 @@ def get_season(month):
 
 def get_weathersit1(weather_condition):
     if weather_condition in ['clear sky', 'few clouds', 'partly cloudy', 'mostly clear', 'light clouds']:
-        return 1, "Açık Hava"  # clear sky, few clouds vb. -> Açık Hava
+        return 1
     elif weather_condition in ['mist', 'overcast clouds', 'broken clouds', 'cloudy', 'fog', 'haze']:
-        return 2, "Sisli ve Bulutlu"  # mist, overcast clouds vb. -> Sisli ve Bulutlu
+        return 2
     elif weather_condition in ['light rain', 'scattered clouds', 'light snow', 'moderate rain']:
-        return 3, "Hafif Yağış"  # light rain, scattered clouds vb. -> Hafif Yağış
+        return 3
     else:
-        return 4, "Şiddetli Yağış"  # diğer durumlar -> Şiddetli Yağış
+        return 4
 
 def sin_cos_encoding(df, columns):
     for col in columns:
