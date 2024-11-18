@@ -128,7 +128,7 @@ def make_predictions(city):
 ####################################################################################################
 ########## YAZDIRMA AŞAMASI
 
-weekday_abbr = {
+weekday_str = {
     1: "Paz",  # Pazar
     2: "Pzt",  # Pazartesi
     3: "Sal",  # Salı
@@ -138,15 +138,22 @@ weekday_abbr = {
     7: "Cmt"   # Cumartesi
 }
 
+season_str = {
+1: "Kış",
+2: "İlkbahar",
+3: "Yaz",
+4: "Sonbahar"
+}
+
 # Streamlit butonu ve sonuç gösterimi
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
-        result['weekdays'] = result['weekday'].map(weekday_abbr)
-
+        result['weekdays'] = result['weekday'].map(weekday_str)
+        result['seasons'] = result["season"].map(season_str)
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+        st.dataframe(result[['Tarih saat', "seasons", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
 # if st.button("Tahmin Yap"):
 #     result = make_predictions(city)
