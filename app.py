@@ -74,6 +74,7 @@ def get_weather_data(city):
         hour = forecast_datetime.hour
         weekday = forecast_datetime.weekday()
         month = forecast_datetime.month
+        date_str = forecast_datetime.strftime('%d/%m/%Y')  # Gün/Ay/Yıl formatında tarih
 
         weather_condition = entry['weather'][0]['description']
         weathersit = get_weathersit1(weather_condition)
@@ -84,6 +85,7 @@ def get_weather_data(city):
         windspeed_scaled = wind_speed / 67
 
         weather_data.append({
+            "datetime": datetime_str,
             "temp": temp_scaled,
             "hum": humidity,
             "windspeed": windspeed_scaled,
@@ -111,12 +113,10 @@ def make_predictions(city):
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-       st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+       st.dataframe(result[['datetime', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={"datetime": "Tarih saat", 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+
+
 # if st.button("Tahmin Yap"):
 #     result = make_predictions(city)
 #     if result is not None:
-#         # "hr" (saat) sütununun doğru eklenip eklenmediğini kontrol edelim
-#         if 'hr' in result.columns:
-#             st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
-#         else:
-#             st.warning("Saat bilgisi veriye eklenmemiş.")
+#        st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
