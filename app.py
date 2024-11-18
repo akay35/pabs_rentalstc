@@ -109,7 +109,7 @@ def get_weather_data(city):
         windspeed = ruzgar / 67
 
         # Burada datetime'ı sadece gösterim için ekliyoruz
-        datetime_str = f"{date_str} {hour}:00"  # Tarih ve saat bilgisini birleştiriyoruz
+        # datetime_str = f"{date_str} {hour}:00"  # Tarih ve saat bilgisini birleştiriyoruz
         # date_str = forecast_datetime.strftime('%Y-%m-%d')
 
         weather_data.append({
