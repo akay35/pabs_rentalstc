@@ -102,7 +102,7 @@ def get_weather_data(city):
 
         weather_data.append({
             "Tarih saat": datetime_str,
-            "Tempc": temp,
+            "temp": temp,
             "Sıcaklık": sic,
             "hum": humidity,
             "windspeed": windspeed_scaled,
