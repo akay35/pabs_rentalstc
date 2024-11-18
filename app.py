@@ -84,8 +84,11 @@ def get_weather_data(city):
         wind_speed = entry['wind']['speed']
         windspeed_scaled = wind_speed / 67
 
+        # Burada datetime'ı sadece gösterim için ekliyoruz
+        datetime_str = f"{date_str} {hour}:00"  # Tarih ve saat bilgisini birleştiriyoruz
+
         weather_data.append({
-            "datetime": datetime_str,
+            "Tarih saat": datetime_str,
             "temp": temp_scaled,
             "hum": humidity,
             "windspeed": windspeed_scaled,
