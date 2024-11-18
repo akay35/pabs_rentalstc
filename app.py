@@ -125,11 +125,31 @@ def make_predictions(city):
     predictions = final_model.predict(processed_data)
     live_data['predicted_rentals'] = predictions
     return live_data
+####################################################################################################
+########## YAZDIRMA AŞAMASI
+
+weekday_abbr = {
+    1: "Paz",  # Pazar
+    2: "Pzt",  # Pazartesi
+    3: "Sal",  # Salı
+    4: "Çar",  # Çarşamba
+    5: "Per",  # Perşembe
+    6: "Cum",  # Cuma
+    7: "Cmt"   # Cumartesi
+}
+
+# Streamlit butonu ve sonuç gösterimi
+if st.button("Tahmin Yap"):
+    result = make_predictions(city)
+    if result is not None:
+        # 'weekday' sütununu kısaltmalarla değiştiriyoruz
+        result['weekdays'] = result['weekday'].map(weekday_abbr)
+
 
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-       st.dataframe(result[['Tarih saat', "season", "weekday", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+       st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
 
 # if st.button("Tahmin Yap"):
