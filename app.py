@@ -115,7 +115,7 @@ def get_weather_data(city):
         weather_data.append({
             # "Tarih_": forecast_datetime.strftime('%Y-%m-%d'),
             # "Tarih saat": datetime_str,
-            "Tarih saat": datetime_strdate_str,
+            "Tarih saat": date_str,
             "temp": temp,                    #model sıcaklığı
             "Sıcaklık": sic,
             "hum": humidity,                 #model nemi
