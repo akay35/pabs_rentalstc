@@ -182,6 +182,8 @@ if st.button("Tahmin Yap"):
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
         result['Kiralama tahmini'] = np.round(result['predicted_rentals']).astype(int)
+        result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
+        result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
         # Dataframe'i Streamlit ile yazdırıyoruz
-st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
+st.dataframe(result[['Tarih saat', "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
 # st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Kiralama tahmini'}))
