@@ -120,6 +120,7 @@ def get_weather_data(city):
             "windspeed": windspeed,
             "Rüzgar": ruzgarg,
             "hr": hour,
+            "Saat": hour,
             "mnth": month,
             "weekday": weekday_mapping[weekday],
             "season": get_season(month),
@@ -184,5 +185,5 @@ if st.button("Tahmin Yap"):
         result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
         # Dataframe'i Streamlit ile yazdırıyoruz
-st.dataframe(result[['Tarih saat', "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
+st.dataframe(result[['Tarih saat', "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
 # st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Kiralama tahmini'}))
