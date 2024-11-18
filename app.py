@@ -52,11 +52,11 @@ def preprocess_live_data(live_data):
     # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
 
     scaler = MinMaxScaler()
-    y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
+    y_num_cols = ["temp_scaled", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
     live_data[y_num_cols] = scaler.fit_transform(live_data[y_num_cols])
 
     new_column_order = [
-        "temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos",
+        "temp_scaled", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos",
         "season", "holiday", "workingday", "weathersit"
     ]
     return live_data[new_column_order]
@@ -102,6 +102,7 @@ def get_weather_data(city):
 
         weather_data.append({
             "Tarih saat": datetime_str,
+            "Tempc": temp_scaled,
             "Sıcaklık": temp,
             "hum": humidity,
             "windspeed": windspeed_scaled,
