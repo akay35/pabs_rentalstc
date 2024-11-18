@@ -14,8 +14,36 @@ HOLIDAY_API_KEY = "zvpar9p0MNt7KR7cLsyjAXIOJhZtp7e9"
 final_model = joblib.load('bike_rentals_model.pkl')
 
 # Streamlit Arayüzü
-st.title("Bisiklet Kiralama Tahmin Uygulaması")
-city = st.text_input("Şehir Adı", "Istanbul")
+# st.title("Bisiklet Kiralama Tahmin Uygulaması")
+# city = st.text_input("Şehir Adı", "Izmir")
+
+st.markdown("""
+    <style>
+    .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #3E8E41;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+    }
+    .subtitle {
+        font-size: 20px;
+        color: #6A9E3F;
+        text-align: center;
+        font-style: italic;
+        font-family: 'Arial', sans-serif;
+    }
+    </style>
+    <div class="title">
+        🌳 Bisiklet Kiralama Tahmin Uygulaması 🌿
+    </div>
+    <div class="subtitle">
+        Şehir Adı: <i>Izmir</i>
+    </div>
+""", unsafe_allow_html=True)
+
+# Kullanıcıdan şehir adını almak
+city = st.text_input("Şehir Adı", "Izmir")
 
 def get_season(month):
     if month in [12, 1, 2]:
