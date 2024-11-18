@@ -191,4 +191,4 @@ if st.button("Tahmin Yap"):
         # Dataframe'i Streamlit ile yazdırıyoruz
 # st.table(result[["Tarih saat", "Saat", "Mevsim", "Gün", "weekday", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])
 
-st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']], use_container_width=True)        
+st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "weekday", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']], use_container_width=True)        
