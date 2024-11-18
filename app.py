@@ -71,6 +71,16 @@ def get_weather_data(city):
     forecast_list = data['list']
     weather_data = []
 
+        weekday_mapping = {
+        0: 1,  # Pazar -> 1
+        1: 2,  # Pazartesi -> 2
+        2: 3,  # Salı -> 3
+        3: 4,  # Çarşamba -> 4
+        4: 5,  # Perşembe -> 5
+        5: 6,  # Cuma -> 6
+        6: 7   # Cumartesi -> 7
+    }
+
     for entry in forecast_list:
         forecast_datetime = datetime.strptime(entry['dt_txt'], '%Y-%m-%d %H:%M:%S')
         hour = forecast_datetime.hour
@@ -96,7 +106,7 @@ def get_weather_data(city):
             "windspeed": windspeed_scaled,
             "hr": hour,
             "mnth": month,
-            "weekday": weekday,
+            "weekday": weekday_mapping[weekday],
             "season": get_season(month),
             "holiday": 0,
             "workingday": 1 if humidity >= 50 else 0,
