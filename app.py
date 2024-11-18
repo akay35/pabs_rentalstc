@@ -47,7 +47,7 @@ def sin_cos_encoding(df, columns):
 def preprocess_live_data(live_data):
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
-    live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
+    # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
 
     scaler = MinMaxScaler()
     y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
