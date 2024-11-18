@@ -48,7 +48,8 @@ def preprocess_live_data(live_data):
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
     # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
-    live_data["weekday"] = live_data["weekday"] + 1
+    live_data["weekday"] = (live_data["weekday"] % 7) + 1  #haftanın günlerini modelimize uyumlu hale getirdik
+    #pazar:1, pazartesi:2, salı:3, çarşamba:4, perşembe:5, cuma:6, cumartesi:7
     
     scaler = MinMaxScaler()
     y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
