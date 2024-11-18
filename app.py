@@ -34,16 +34,20 @@ st.markdown("""
         font-family: 'Arial', sans-serif;
     }
     </style>
+""", unsafe_allow_html=True)
+
+# Kullanıcıdan şehir adı al
+city = st.text_input("Şehir Adı", "Izmir")
+
+# Dinamik başlık ve alt başlık
+st.markdown(f"""
     <div class="title">
         🌳 Bisiklet Kiralama Tahmin Uygulaması 🌿
     </div>
     <div class="subtitle">
-        Şehir Adı: <i>Izmir</i>
+        Şehir: {city}
     </div>
 """, unsafe_allow_html=True)
-
-# Kullanıcıdan şehir adını almak
-city = st.text_input("Şehir Adı", "Izmir")
 
 def get_season(month):
     if month in [12, 1, 2]:
