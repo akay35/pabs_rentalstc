@@ -65,7 +65,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
 st.markdown("""
     <style>
     .title {
@@ -294,3 +293,15 @@ if result is not None:
         </div>
     """, unsafe_allow_html=True)
 
+
+# Add background image styling at the end
+background_image = "path_to_your_image.jpg"  # Replace with local file path
+st.markdown(f"""
+    <style>
+        body {{
+            background-image: url('{background_image}');
+            background-size: cover;
+            background-position: center;
+        }}
+    </style>
+""", unsafe_allow_html=True)
