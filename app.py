@@ -69,15 +69,12 @@ def get_weather_data(city):
     forecast_list = data['list']
     weather_data = []
 
- for entry in forecast_list:
-        # Tarih ve saat bilgisi
+    for entry in forecast_list:
         forecast_datetime = datetime.strptime(entry['dt_txt'], '%Y-%m-%d %H:%M:%S')
         hour = forecast_datetime.hour
         weekday = forecast_datetime.weekday()
         month = forecast_datetime.month
-        date_str = forecast_datetime.strftime('%Y-%m-%d %H:%M')
 
-        # Hava durumu verileri
         weather_condition = entry['weather'][0]['description']
         weathersit = get_weathersit1(weather_condition)
         temp = entry['main']['temp']
@@ -87,13 +84,12 @@ def get_weather_data(city):
         windspeed_scaled = wind_speed / 67
 
         weather_data.append({
-            "Tarih saat": date_str,
-            "hr": hour,
-            "mnth": month,
-            "weekday": weekday,
             "temp": temp_scaled,
             "hum": humidity,
             "windspeed": windspeed_scaled,
+            "hr": hour,
+            "mnth": month,
+            "weekday": weekday,
             "season": get_season(month),
             "holiday": 0,
             "workingday": 1 if humidity >= 50 else 0,
@@ -115,12 +111,4 @@ def make_predictions(city):
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-        st.write("Tahmin Sonuçları:")
-        st.dataframe(
-            result[['Tarih saat', 'weekday', 'hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']]
-            .rename(columns={
-                'predicted_rentals': 'Tahmini Kiralama Sayısı',
-                'weekday': 'Gün',
-                'hr': 'Saat'
-            })
-        )
+        st.dataframe(result[['temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
