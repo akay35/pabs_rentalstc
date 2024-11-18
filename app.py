@@ -222,7 +222,7 @@ season_str = {
 }
 
 # Streamlit butonu ve sonuç gösterimi
-if st.button("Tahmin Yap"):
+if st.button("🚴‍♂️ Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
@@ -233,6 +233,5 @@ if st.button("Tahmin Yap"):
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
         # Dataframe'i Streamlit ile yazdırıyoruz
-# st.table(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']])
-
-st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)        
+        st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
+      
