@@ -45,7 +45,6 @@ def sin_cos_encoding(df, columns):
     return df
 
 def preprocess_live_data(live_data, holiday_data):
-    # Tarih sütununu datetime formatına dönüştür
     live_data['Tarih saat'] = pd.to_datetime(live_data['Tarih saat'], format='%d/%m/%Y %H:%M')
     live_data['Tarih'] = live_data['Tarih saat'].dt.strftime('%Y-%m-%d')
     
@@ -55,7 +54,7 @@ def preprocess_live_data(live_data, holiday_data):
     # Haftasonları (Cumartesi ve Pazar) için çalışma günü kontrolü
     live_data['weekday'] = live_data['Tarih saat'].dt.weekday
     live_data['workingday'] = live_data.apply(
-        lambda row: 0 if row['holiday'] == 1 else (1 if row['weekday'] < 5 else 1), axis=1
+        lambda row: 1 if row['holiday'] == 0 and row['weekday'] < 5 else 0, axis=1
     )
 
     sincos = ["hr", "mnth", "weekday"]
