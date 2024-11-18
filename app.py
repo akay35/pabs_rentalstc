@@ -102,7 +102,7 @@ def get_weather_data(city):
 
         weather_data.append({
             "Tarih saat": datetime_str,
-            "temp": temp_scaled,
+            "Sıcaklık": temp,
             "hum": humidity,
             "windspeed": windspeed_scaled,
             "hr": hour,
@@ -153,15 +153,4 @@ if st.button("Tahmin Yap"):
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
-
-# if st.button("Tahmin Yap"):
-#     result = make_predictions(city)
-#     if result is not None:
-#        st.dataframe(result[['Tarih saat', "season", "weekdays", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
-
-
-# if st.button("Tahmin Yap"):
-#     result = make_predictions(city)
-#     if result is not None:
-#        st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
