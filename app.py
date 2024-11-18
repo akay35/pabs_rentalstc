@@ -173,9 +173,9 @@ weekday_str = {
 
 season_str = {
 1: "Kış",
-2: "İlkbahar",
+2: "İlkbhr",
 3: "Yaz",
-4: "Sonbahar"
+4: "Snbhr"
 }
 
 # Streamlit butonu ve sonuç gösterimi
@@ -192,4 +192,4 @@ if st.button("Tahmin Yap"):
         # Dataframe'i Streamlit ile yazdırıyoruz
 # st.table(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']])
 
-st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "weekday", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']], use_container_width=True)        
+st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)        
