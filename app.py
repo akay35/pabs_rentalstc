@@ -94,8 +94,8 @@ def get_weather_data(city):
         sic = entry['main']['temp']          #gerçek sıcaklık
         temp = (sic - (-8)) / (39 - (-8))    #modele uygun ismi ile normalize edilmiş sıcaklık, minmax sonrası modelimize sokulacak
         humidity = entry['main']['humidity'] #gerçek nem
-        wind_speed = entry['wind']['speed']
-        windspeed_scaled = wind_speed / 67
+        ruzgar = entry['wind']['speed']
+        windspeed = ruzgar / 67
 
         # Burada datetime'ı sadece gösterim için ekliyoruz
         datetime_str = f"{date_str} {hour}:00"  # Tarih ve saat bilgisini birleştiriyoruz
@@ -106,7 +106,8 @@ def get_weather_data(city):
             "Sıcaklık": sic,
             "hum": humidity,                 #model nemi
             "Nem": humidity,
-            "windspeed": windspeed_scaled,
+            "windspeed": windspeed,
+            "Rüzgar": ruzgar,
             "hr": hour,
             "mnth": month,
             "weekday": weekday_mapping[weekday],
@@ -156,5 +157,5 @@ if st.button("Tahmin Yap"):
         result['Mevsim'] = result["season"].map(season_str)
         result['Kiralama tahmini'] = np.round(result['predicted_rentals']).astype(int)
         # Dataframe'i Streamlit ile yazdırıyoruz
-st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'Kiralama tahmini']])        
+st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']])        
 # st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Kiralama tahmini'}))
