@@ -62,7 +62,7 @@ def preprocess_live_data(live_data, holiday_data):
     # Haftasonları (Cumartesi ve Pazar) için çalışma günü kontrolü
     live_data['weekday'] = live_data['weekday']  # get_weather_data'dan alınan 'weekday' kullanılıyor
     live_data['workingday'] = live_data.apply(
-        lambda row: 1 if row['holiday'] == 0 and row['weekday'] < 5 else 0, axis=1
+        lambda row: 1 if row['holiday'] == 0 and 2 < row['weekday'] < 6 else 0, axis=1
     )
 
     # Sinüs ve kosinüs dönüşümü için saat, ay, hafta günü gibi kolonları kullanıyoruz
