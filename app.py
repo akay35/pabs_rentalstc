@@ -52,11 +52,11 @@ def preprocess_live_data(live_data):
     # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
 
     scaler = MinMaxScaler()
-    y_num_cols = ["temp_scaled", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
+    y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
     live_data[y_num_cols] = scaler.fit_transform(live_data[y_num_cols])
 
     new_column_order = [
-        "temp_scaled", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos",
+        "temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos",
         "season", "holiday", "workingday", "weathersit"
     ]
     return live_data[new_column_order]
@@ -91,8 +91,8 @@ def get_weather_data(city):
 
         weather_condition = entry['weather'][0]['description']
         weathersit = get_weathersit1(weather_condition)
-        temp = entry['main']['temp']
-        temp_scaled = (temp - (-8)) / (39 - (-8))
+        sic = entry['main']['temp']
+        temp = (sic - (-8)) / (39 - (-8))  #normalize edilmiş sıcaklık modelimize uygun değişken adı
         humidity = entry['main']['humidity']
         wind_speed = entry['wind']['speed']
         windspeed_scaled = wind_speed / 67
@@ -102,8 +102,8 @@ def get_weather_data(city):
 
         weather_data.append({
             "Tarih saat": datetime_str,
-            "Tempc": temp_scaled,
-            "Sıcaklık": temp,
+            "Tempc": temp,
+            "Sıcaklık": sic,
             "hum": humidity,
             "windspeed": windspeed_scaled,
             "hr": hour,
@@ -154,4 +154,4 @@ if st.button("Tahmin Yap"):
         result['Gün'] = result['weekday'].map(weekday_str)
         result['Mevsim'] = result["season"].map(season_str)
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+        st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', "Tempc", 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
