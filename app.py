@@ -108,16 +108,16 @@ def make_predictions(city):
     live_data['predicted_rentals'] = predictions
     return live_data
 
-# if st.button("Tahmin Yap"):
-#     result = make_predictions(city)
-#     if result is not None:
-#         st.dataframe(result[['temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
-
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-        # "hr" (saat) sütununun doğru eklenip eklenmediğini kontrol edelim
-        if 'hr' in result.columns:
-            st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
-        else:
-            st.warning("Saat bilgisi veriye eklenmemiş.")
+        st.dataframe(result[['temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+
+# if st.button("Tahmin Yap"):
+#     result = make_predictions(city)
+#     if result is not None:
+#         # "hr" (saat) sütununun doğru eklenip eklenmediğini kontrol edelim
+#         if 'hr' in result.columns:
+#             st.dataframe(result[['hr', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'hr': 'Saat', 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+#         else:
+#             st.warning("Saat bilgisi veriye eklenmemiş.")
