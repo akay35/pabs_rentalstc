@@ -48,7 +48,18 @@ def preprocess_live_data(live_data):
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
     # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
-    live_data["weekday"] = (live_data["weekday"] % 7) + 1  #haftanın günlerini modelimize uyumlu hale getirdik
+        # 'weekday' değerlerini 1-7 arasına dönüştürmek için
+    weekday_mapping = {
+        0: 1,  # Pazar -> 1
+        1: 2,  # Pazartesi -> 2
+        2: 3,  # Salı -> 3
+        3: 4,  # Çarşamba -> 4
+        4: 5,  # Perşembe -> 5
+        5: 6,  # Cuma -> 6
+        6: 7   # Cumartesi -> 7
+    }
+
+    live_data["weekday"] = live_data["weekday"].map(weekday_mapping)
     #pazar:1, pazartesi:2, salı:3, çarşamba:4, perşembe:5, cuma:6, cumartesi:7
     
     scaler = MinMaxScaler()
