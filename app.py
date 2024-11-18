@@ -45,12 +45,18 @@ def sin_cos_encoding(df, columns):
     return df
 
 def preprocess_live_data(live_data, holiday_data):
+    # Tarih sütununu datetime formatına dönüştür
     live_data['Tarih saat'] = pd.to_datetime(live_data['Tarih saat'], format='%d/%m/%Y %H:%M')
-    live_data['Tarih'] = live_data['Tarih saat'].dt.strftime('%d/%m/%Y')
+    live_data['Tarih'] = live_data['Tarih saat'].dt.strftime('%Y-%m-%d')
     
-    # holiday ve workingday bilgilerini holiday_data ile güncelliyoruz
+    # Resmi tatil bilgilerini holiday_data listesi ile güncelliyoruz
     live_data['holiday'] = live_data['Tarih'].apply(lambda x: 1 if x in holiday_data else 0)
-    live_data['workingday'] = live_data['holiday'].apply(lambda x: 0 if x == 1 else 1)
+    
+    # Haftasonları (Cumartesi ve Pazar) için çalışma günü kontrolü
+    live_data['weekday'] = live_data['Tarih saat'].dt.weekday
+    live_data['workingday'] = live_data.apply(
+        lambda row: 0 if row['holiday'] == 1 else (1 if row['weekday'] < 5 else 1), axis=1
+    )
 
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
