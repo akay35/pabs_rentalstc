@@ -189,5 +189,5 @@ if st.button("Tahmin Yap"):
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
         # Dataframe'i Streamlit ile yazdırıyoruz
-st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']], use_container_width=True))        
+st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', 'Kiralama tahmini']], use_container_width=True)        
 # st.dataframe(result[['Tarih saat', "Mevsim", "Gün", 'Sıcaklık', 'Nem', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Kiralama tahmini'}))
