@@ -73,13 +73,13 @@ def get_weather_data(city):
 
     # Weekday mapping (Burada doğru girintilemeyi sağlıyoruz)
     weekday_mapping = {
-        0: 1,  # Pazar -> 1
-        1: 2,  # Pazartesi -> 2
-        2: 3,  # Salı -> 3
-        3: 4,  # Çarşamba -> 4
-        4: 5,  # Perşembe -> 5
-        5: 6,  # Cuma -> 6
-        6: 7   # Cumartesi -> 7
+        0: 2,  # Pazartesi -> 2
+        1: 3,  # Salı -> 3
+        2: 4,  # Çarşamba -> 4
+        3: 5,  # Perşembe -> 5
+        4: 6,  # Cuma -> 6
+        5: 7,  # Cumartesi -> 7
+        6: 1   # Pazar -> 1
     }
 
     for entry in forecast_list:
