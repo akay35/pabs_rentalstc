@@ -113,7 +113,7 @@ def make_predictions(city):
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-       st.dataframe(result[['datetime', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={"datetime": "Tarih saat", 'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+       st.dataframe(result[['datetime', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
 
 # if st.button("Tahmin Yap"):
