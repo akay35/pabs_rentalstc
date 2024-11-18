@@ -52,10 +52,10 @@ def preprocess_live_data(live_data, holiday_data):
     live_data['holiday'] = live_data['Tarih'].apply(lambda x: 1 if x in holiday_data else 0)
     
     # Haftasonları (Cumartesi ve Pazar) için çalışma günü kontrolü
-    live_data['weekday'] = live_data['Tarih saat'].dt.weekday
-    live_data['workingday'] = live_data.apply(
-        lambda row: 1 if row['holiday'] == 0 and row['weekday'] < 5 else 0, axis=1
-    )
+    # live_data['weekday'] = live_data['Tarih saat'].dt.weekday
+    # live_data['workingday'] = live_data.apply(
+    #     lambda row: 1 if row['holiday'] == 0 and row['weekday'] < 5 else 0, axis=1
+    # )
 
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
