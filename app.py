@@ -46,7 +46,8 @@ def sin_cos_encoding(df, columns):
 
 def preprocess_live_data(live_data, holiday_data):
     # Resmi tatil bilgilerini holiday_data listesi ile güncelliyoruz
-    live_data['holiday'] = live_data['Tarih'].apply(lambda x: 1 if x in holiday_data else 0)
+    live_data['holiday'] = live_data['Tarih saat'].apply(lambda x: 1 if x[:10] in holiday_data else 0)
+
     
     # Haftasonları (Cumartesi ve Pazar) için çalışma günü kontrolü
     live_data['weekday'] = live_data['weekday']  # get_weather_data'dan alınan 'weekday' kullanılıyor
