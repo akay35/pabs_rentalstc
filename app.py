@@ -48,7 +48,8 @@ def preprocess_live_data(live_data):
     sincos = ["hr", "mnth", "weekday"]
     live_data = sin_cos_encoding(live_data, sincos)
     # live_data.drop(["hr", "mnth", "weekday"], axis=1, inplace=True)
-
+    live_data["weekday"] = live_data["weekday"] + 1
+    
     scaler = MinMaxScaler()
     y_num_cols = ["temp", "hum", "windspeed", "hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"]
     live_data[y_num_cols] = scaler.fit_transform(live_data[y_num_cols])
@@ -116,7 +117,7 @@ def make_predictions(city):
 if st.button("Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
-       st.dataframe(result[['Tarih saat', 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
+       st.dataframe(result[['Tarih saat', "weekday", 'temp', 'hum', 'windspeed', 'predicted_rentals']].rename(columns={'predicted_rentals': 'Tahmini Kiralama Sayısı'}))
 
 
 # if st.button("Tahmin Yap"):
