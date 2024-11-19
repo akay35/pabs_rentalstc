@@ -31,12 +31,7 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # SoundCloud müzik linki
 
 # SoundCloud embed kodu
-soundcloud_iframe = """
-<iframe width="100%" height="300" scrolling="no" frameborder="no" 
-    allow="autoplay" 
-    src="https://soundcloud.com/edgar-poe-665232219/its-a-beautiful-day-white-bird?si=b60adc8088de41fd856c6ee67a0afcae&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
-</iframe>
-"""
+soundcloud_iframe = """<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/226534207&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/edgar-poe-665232219" title="edgar poe, wsea" target="_blank" style="color: #cccccc; text-decoration: none;">edgar poe, wsea</a> · <a href="https://soundcloud.com/edgar-poe-665232219/its-a-beautiful-day-white-bird" title="It&#x27;s A Beautiful Day - White Bird" target="_blank" style="color: #cccccc; text-decoration: none;">It&#x27;s A Beautiful Day - White Bird</a></div>"""
 
 # Sayfa başlığı
 st.title("🎵 Bisiklet Sürüşüne Uygun Müzik")
