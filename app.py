@@ -15,7 +15,22 @@ HOLIDAY_API_KEY = "zvpar9p0MNt7KR7cLsyjAXIOJhZtp7e9"
 # LightGBM Modeli Yükle
 final_model = joblib.load('bike_rentals_model.pkl')
 
+# Sayaç Fonksiyonu
+def update_visitor_count(file_path='visitor_count.csv'):
+    try:
+        df = pd.read_csv(file_path)
+    except FileNotFoundError:
+        df = pd.DataFrame({'count': [0]})
+    df['count'] += 1
+    df.to_csv(file_path, index=False)
+    return df['count'].iloc[0]
 
+# Sayaç güncelleniyor
+visitor_count = update_visitor_count()
+
+# Streamlit Arayüzü
+st.title("Ziyaretçi Sayacı")
+st.write(f"Bu sayfa {visitor_count} kez ziyaret edildi.")
 ##########################################################################################
 ########## Sayfa Düzeni
 st.set_page_config(layout="wide", page_title="pabsrentalsaky", page_icon="🚲")
