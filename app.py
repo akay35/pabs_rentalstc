@@ -74,6 +74,18 @@ st.sidebar.markdown(
     """, unsafe_allow_html=True
 )
 
+
+st.markdown(
+    """
+    <style>
+    body {
+        background: linear-gradient(to right, #ffecd2, #fcb69f, #d4a5a5); /* Yumuşak pembe, somon, kırmızımsı tonlar */
+        color: #ffffff; /* Yazı rengi beyaz */
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
 st.markdown("""
     <style>
     .title {
