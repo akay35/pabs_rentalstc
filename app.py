@@ -197,7 +197,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Kullanıcıdan şehir adı al
-city = st.text_input("Şehir Adı", "Izmir")
+city = st.text_input("Şehir adını giriniz", "Izmir")
 
 # Dinamik başlık ve alt başlık
 st.markdown(f"""
