@@ -20,6 +20,19 @@ final_model = joblib.load('bike_rentals_model.pkl')
 st.sidebar.write("Bisiklet paylaşım sistemlerinde, bisiklet kullanım oranları günün saatine, haftanın gününe, hava durumuna değişkenlik gösterir ve bu durumlar istasyonlar arasında dengesiz bir bisiklet dağılımına neden olmaktadır.") 
 # Bazı istasyonlarda bisiklet eksikliği yaşanırken, bazıları doluluk nedeniyle bisiklet iadesi kabul edememektedir.")
 st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
+st.sidebar.write("Amaç:
+Bu projedeki amacımız, çeşitli faktörler (saat, ay, mevsim, sıcaklık, rüzgar, nem, yağmur durumu vb.) göz önünde bulundurularak bisiklet kiralama sayılarını tahmin eden bir model geliştirmektir. Bu model, aşağıdaki hedeflere ulaşmayı amaçlamaktadır:")
+
+st.sidebar.write("Trafik Yönetimi ve Planlama: Bisiklet kiralama talebinin tahmin edilmesi, bisiklet paylaşım sistemleri için daha verimli bisiklet dağıtımı ve park alanı planlaması sağlar. Bu, şehirlerdeki ulaşım ağlarının daha verimli yönetilmesine katkı sağlar.")
+
+st.sidebar.write("İklim ve Mevsimsel Etkilerin Anlaşılması: Sıcaklık, yağmur, rüzgar gibi hava durumu koşullarının bisiklet kiralama talebine etkilerini anlamak, bu faktörlerin etkilerini önceden tahmin edebilmek için veri odaklı bir yaklaşım sunar.")
+
+st.sidebar.write("Kullanıcı Deneyiminin İyileştirilmesi: Kullanıcılar için daha doğru bisiklet erişimi sağlamak, yoğun talep zamanlarına göre bisiklet tedarikini optimize etmek ve dolayısıyla müşteri memnuniyetini artırmak mümkündür.")
+
+st.sidebar.write("Pazar Stratejilerinin Geliştirilmesi: Bisiklet kiralama hizmeti sağlayıcıları, mevsimsel ve hava koşullarına dayalı tahminlerle kiralama fiyatlarını ve promosyonlarını daha iyi belirleyebilir, kâr marjlarını optimize edebilir.")
+
+st.sidebar.write("Sürdürülebilir Ulaşımın Teşviki: Bisiklet kullanımı, çevre dostu ulaşım seçenekleri sunarak karbon ayak izinin azaltılmasına yardımcı olabilir. Bu model, şehir içi ulaşımda bisiklet kullanımını teşvik etmek amacıyla stratejik kararlar almada yardımcı olacaktır.")
+
 
 st.markdown("""
     <style>
