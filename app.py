@@ -181,16 +181,36 @@ text_col.markdown(f"""
 
 ##########################################################################################
 def plot_predictions_by_hour(result):
-    plt.figure(figsize=(10, 6))
-    sns.lineplot(data=result, x='Saat', y='Tahmin', marker='o', color='b', label='Tahmin Edilen Kiralama Sayısı')
+    # Eğer 'Saat' kolonunda eksik değer varsa onları işleyin
+    if result['Saat'].isnull().any():
+        result = result.dropna(subset=['Saat'])
+
+    # Saatlere göre gruplama yapın ve tahminleri çizdirin
+    hourly_predictions = result.groupby('Saat')['Tahmin'].mean()
+
+    # Görselleştirmeyi şık ve ferah yapmak için güzel bir renk paleti seçiyoruz
+    plt.style.use('seaborn-v0_8-muted')  # Seaborn'un hoş, sakin ve modern stilini kullanıyoruz
+
+    # Plotlama işlemi
+    fig, ax = plt.subplots(figsize=(10, 6))
     
-    plt.title('Saatlere Göre Tahmin Edilen Bisiklet Kiralama Sayıları')
-    plt.xlabel('Saat')
-    plt.ylabel('Tahmin Edilen Kiralama Sayısı')
-    plt.grid(True)
+    # Eğriyi çiziyoruz (lineplot), saat bazında tahmin edilen kiralamaları görselleştiriyoruz
+    sns.lineplot(x=hourly_predictions.index, y=hourly_predictions.values, ax=ax, color='teal', linewidth=3)
+
+    # Başlık ve etiketleri ekliyoruz
+    ax.set_title("Tahmin Edilen Bisiklet Kiralama Sayıları (Saat Bazında)", fontsize=16, fontweight='bold', color='darkslategray')
+    ax.set_xlabel("Saat", fontsize=14, color='grey')
+    ax.set_ylabel("Tahmin Edilen Kiralamalar", fontsize=14, color='grey')
+
+    # Daha ferah ve şık bir görünüm için grid kullanımı
+    ax.grid(True, linestyle='--', alpha=0.5)
     
-    # Grafiği Streamlit'te göstermek
-    text_col.pyplot(plt)
+    # X ekseninde daha fazla etiket görünmesini sağlıyoruz
+    plt.xticks(fontsize=12, rotation=45, color='grey')
+    plt.yticks(fontsize=12, color='grey')
+
+    # Görseli Streamlit ile göstermek için uygun hale getiriyoruz
+    text_col.pyplot(fig)
 
 ##########################################################################################
 
@@ -382,8 +402,9 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         
         # Text column içinde tabloyu doğru şekilde göstermek
         # text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
-        text_col.markdown("<h3 style='color: #FF5733;'>🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**</h3>", unsafe_allow_html=True)
-        text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
+        text_col.markdown("<h3 style='color: #FF5733;'>🔮 Tahmin Edilen Bisiklet Kiralama Sayıları 🔮</h3>", unsafe_allow_html=True)
+            if result is not None:
+        plot_predictions_by_hour(result)
         
 plot_predictions_by_hour(result)
 # Add background image styling at the end
