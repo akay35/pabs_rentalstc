@@ -19,7 +19,7 @@ final_model = joblib.load('bike_rentals_model.pkl')
 
 st.sidebar.write("Bisiklet paylaşım sistemlerinde, bisiklet kullanım oranları günün saatine, haftanın gününe, hava durumuna değişkenlik gösterir ve bu durumlar istasyonlar arasında dengesiz bir bisiklet dağılımına neden olmaktadır.") 
 # Bazı istasyonlarda bisiklet eksikliği yaşanırken, bazıları doluluk nedeniyle bisiklet iadesi kabul edememektedir.")
-st.sidebar.image("https://www.shutterstock.com/image-photo/mountain-e-bike-austria-ebike-bicycle-1800880555", use_column_width=True)
+st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 
 st.markdown("""
     <style>
