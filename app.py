@@ -105,7 +105,7 @@ st.markdown("""
     <style>
     /* Ana sayfanın arka plan rengini değiştir */
     .stApp {
-        background: linear-gradient(to right, #a8e6cf, #d3f8e2); /* Mint yeşili ve açık mavi gradyanı */
+        background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Açık mavi ve buz beyazı */
         color: #ffffff; /* Yazılar için beyaz */
     }
 
