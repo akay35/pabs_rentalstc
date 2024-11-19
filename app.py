@@ -47,7 +47,7 @@ html_code = """
 """.format(iframe=soundcloud_iframe)
 
 # Streamlit uygulamasında HTML'yi ekleyin
-image_col.components.v1.html(html_code, height=400)
+st.components.v1.html(html_code, height=400)
 
 ##########################################################################################
 ########## Sidebar
