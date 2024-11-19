@@ -51,6 +51,15 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
+
+# Kullanıcıya GIF göstermek için aşağıdaki kodu ekliyoruz
+st.markdown("""
+    <div class="gif-container">
+        <iframe src="https://giphy.com/embed/LpvC3GFtj0fuaP44T9" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/AlexRiderTV-alex-rider-alexrider-alexridertv-LpvC3GFtj0fuaP44T9">via GIPHY</a></p>
+    </div>
+""", unsafe_allow_html=True)
+
 def get_season(month):
     if month in [12, 1, 2]:
         return 1  # Kış
