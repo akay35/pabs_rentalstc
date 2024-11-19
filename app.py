@@ -368,16 +368,6 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
         
 
-        # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
-        result['Saat'] = result['Saat'].astype(str)  # Saat kolonunun string olduğunu varsayıyoruz
-
-# Grafik için veriyi hazırlıyoruz
-result_sorted = result.sort_values('Saat')
-
-# Saat değişkenini X eksenine, Tahmin edilen kiralama sayısını Y eksenine koyuyoruz
-st.line_chart(result_sorted.set_index('Saat')['predicted_rentals'])
-
-
 # Add background image styling at the end
 background_image = "path_to_your_image.jpg"  # Replace with local file path
 st.markdown(f"""
