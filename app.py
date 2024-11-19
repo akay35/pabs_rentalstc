@@ -43,6 +43,9 @@ st.markdown("""
             text-align: center;
             padding-top: 20%;
             color: white;
+            margin: 0;
+            height: 100vh;
+            z-index: -1; /* Arka planın ön planda olmasını sağlar */
         }
 
         @keyframes changeBackground {
