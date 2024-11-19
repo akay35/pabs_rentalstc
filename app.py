@@ -92,7 +92,7 @@ st.logo("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", icon_i
 # st.sidebar.write("Sürdürülebilir Ulaşımın Teşviki: Bisiklet kullanımı, çevre dostu ulaşım seçenekleri sunarak karbon ayak izinin azaltılmasına yardımcı olabilir. Bu model, şehir içi ulaşımda bisiklet kullanımını teşvik etmek amacıyla stratejik kararlar almada yardımcı olacaktır.")
 
 # Sidebar resmini ekleyin
-# st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
+st.sidebar.image("Summer-background-with-green-tree-and-bike-vector.jpg", use_column_width=True)
 
 st.sidebar.markdown(
     """
