@@ -57,6 +57,7 @@ with image_col:
     # image_col.title("🎵 Every Ride Tells a Story!")
     image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
+    image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>As you pedal through life, each ride becomes part of your story. 🎶</p>", unsafe_allow_html=True)
     image_col.image("cyclist-pedaling-through-tunnel-autumn-trees_693425-33036.jpg", width=600)
 
 ##########################################################################################
