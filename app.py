@@ -43,7 +43,7 @@ def add_music_player():
 
     # HTML ve CSS için bir stil bloğu
     html_code = """
-    <div style="position: fixed; width: 100%; height: 300px; margin-top: 20px">
+    <div style="position: fixed; width: 500px; height: 300px; margin-top: 20px">
         {iframe}
     </div>
     """.format(iframe=soundcloud_iframe)
@@ -54,8 +54,6 @@ def add_music_player():
 with image_col:
     image_col.title("🎵 Every Ride Tells a Story!")
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
-
-
 
 ##########################################################################################
 ########## Sidebar
