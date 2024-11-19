@@ -54,8 +54,8 @@ def add_music_player():
 with image_col:
     # image_col.title("🎵 Every Ride Tells a Story!")
     image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
-    image_col.image("WhatsApp Image 2024-11-19 at 15.00.44 (1).jpeg", width=400)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
+    image_col.image("cyclist-pedaling-through-tunnel-autumn-trees_693425-33036.jpg", width=600)
 
 ##########################################################################################
 ########## Sidebar
@@ -365,7 +365,8 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
         
         # Text column içinde tabloyu doğru şekilde göstermek
-        text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
+        # text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
+        text_col.markdown("<h3 style='color: #FF5733;'>🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**</h3>", unsafe_allow_html=True)
         text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
         
 
