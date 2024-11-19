@@ -178,6 +178,20 @@ text_col.markdown(f"""
 """, unsafe_allow_html=True)
 
 ##########################################################################################
+def plot_predictions_by_hour(result):
+    plt.figure(figsize=(10, 6))
+    sns.lineplot(data=result, x='Saat', y='Tahmin', marker='o', color='b', label='Tahmin Edilen Kiralama Sayısı')
+    
+    plt.title('Saatlere Göre Tahmin Edilen Bisiklet Kiralama Sayıları')
+    plt.xlabel('Saat')
+    plt.ylabel('Tahmin Edilen Kiralama Sayısı')
+    plt.grid(True)
+    
+    # Grafiği Streamlit'te göstermek
+    text_col.pyplot(plt)
+
+##########################################################################################
+
 def get_season(month):
     if month in [12, 1, 2]:
         return 1  # Kış
@@ -369,7 +383,7 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         text_col.markdown("<h3 style='color: #FF5733;'>🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**</h3>", unsafe_allow_html=True)
         text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
         
-
+plot_predictions_by_hour(result)
 # Add background image styling at the end
 background_image = "path_to_your_image.jpg"  # Replace with local file path
 st.markdown(f"""
