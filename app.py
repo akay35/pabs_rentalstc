@@ -23,7 +23,7 @@ st.set_page_config(layout="wide", page_title="pabsrentalsaky", page_icon="🚲")
 # Sayfa başlığı
 st.title("🎵 Every Ride Tells a Story!")
 
-# HTML ve CSS için bir stil bloğu   ##width ve height ile soundcloud app görsel ayarlamaları yapabilirsin ;)
+# HTML ve CSS için bir stil bloğu  
 html_code = """
 <div style="position: fixed; bottom: 10px; right: 10px; width: 400px; height: 300px;">   
     {iframe}
