@@ -17,7 +17,8 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # st.title("Bisiklet Kiralama Tahmin Uygulaması")
 # city = st.text_input("Şehir Adı", "Izmir")
 
-
+st.sidebar.write("Bisiklet paylaşım sistemlerinde, bisiklet kullanım oranları günün saatine, haftanın gününe, hava durumuna değişkenlik gösterir ve bu durumlar istasyonlar arasında dengesiz bir bisiklet dağılımına neden olmaktadır. 
+Bazı istasyonlarda bisiklet eksikliği yaşanırken, bazıları doluluk nedeniyle bisiklet iadesi kabul edememektedir.")
 
 st.markdown("""
     <style>
