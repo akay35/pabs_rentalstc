@@ -35,7 +35,6 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # Sidebar resmini ekleyin
 st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 
-
 st.sidebar.markdown(
     """
     <style>
