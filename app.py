@@ -26,10 +26,6 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # # SoundCloud embed müzik
 # st.components.v1.html(soundcloud_iframe, height=200)
 
-
-
-# SoundCloud müzik linki
-
 # SoundCloud embed kodu
 soundcloud_iframe = """<iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/226534207&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/edgar-poe-665232219" title="edgar poe, wsea" target="_blank" style="color: #cccccc; text-decoration: none;">edgar poe, wsea</a> · <a href="https://soundcloud.com/edgar-poe-665232219/its-a-beautiful-day-white-bird" title="It&#x27;s A Beautiful Day - White Bird" target="_blank" style="color: #cccccc; text-decoration: none;">It&#x27;s A Beautiful Day - White Bird</a></div>"""
 
@@ -46,11 +42,9 @@ html_code = """
 # Streamlit uygulamasında HTML'yi ekleyin
 st.components.v1.html(html_code, height=400)
 ##########################################################################################
-
 # Streamlit Arayüzü
 # st.title("Bisiklet Kiralama Tahmin Uygulaması")
 # city = st.text_input("Şehir Adı", "Izmir")
-
 
 # st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 # st.sidebar.write("Amaç:")
@@ -107,7 +101,6 @@ st.sidebar.markdown(
     """, unsafe_allow_html=True
 )
 
-
 st.markdown("""
     <style>
         /* Sayfa genel arka plan rengi */
@@ -163,7 +156,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 st.markdown(
