@@ -432,7 +432,7 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         
 plot_predictions_by_hour(result)
 # Add background image styling at the end
-background_image = "path_to_your_image.jpg"  # Replace with local file path
+background_image = "WhatsApp Image 2024-11-19 at 15.00.44 (1).jpeg"  # Replace with local file path
 st.markdown(f"""
     <style>
         body {{
