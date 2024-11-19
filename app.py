@@ -156,12 +156,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+text_col, image_col = st.columns(2)   #sayfayı ikiye böldük
 
 # Kullanıcıdan şehir adı al
-city = st.text_input("Şehir adını giriniz", "Izmir")
+city = text_col.text_input("Şehir adını giriniz", "Izmir")
 
 # Dinamik başlık ve alt başlık
-st.markdown(f"""
+text_col.markdown(f"""
     <div class="title">
         🌳 Bisiklet Kiralama Tahmin Uygulaması 🌿
     </div>
@@ -170,6 +171,7 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
+##########################################################################################
 def get_season(month):
     if month in [12, 1, 2]:
         return 1  # Kış
@@ -343,7 +345,7 @@ season_str = {
 }
 
 # Streamlit butonu ve sonuç gösterimi
-if st.button("🚴‍♂️ Tahmin Yap"):
+if text_col.button("🚴‍♂️ Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
@@ -356,7 +358,7 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         # Dataframe'i Streamlit ile yazdırıyoruz
         # st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
         result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
-        st.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
+        text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
         
 
         # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
