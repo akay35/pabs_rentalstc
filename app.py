@@ -43,7 +43,7 @@ def add_music_player():
 
     # HTML ve CSS için bir stil bloğu
     html_code = """
-    <div style="position: fixed; width: 400px; height: 300px; margin-top: 20px">
+    <div style="position: fixed; width: 500px; height: 300px; margin-top: 20px">
         {iframe}
     </div>
     """.format(iframe=soundcloud_iframe)
@@ -53,8 +53,8 @@ def add_music_player():
 
 with image_col:
     # image_col.title("🎵 Every Ride Tells a Story!")
-    image_col.markdown("<h1 style='font-size: 25px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
-    image_col.image("WhatsApp Image 2024-11-19 at 15.00.44 (1).jpeg", width=300)
+    image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
+    image_col.image("WhatsApp Image 2024-11-19 at 15.00.44 (1).jpeg", width=400)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
 
 ##########################################################################################
