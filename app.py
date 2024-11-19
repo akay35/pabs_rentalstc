@@ -5,6 +5,8 @@ from datetime import datetime, timedelta
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # API Anahtarları
 WEATHER_API_KEY = "9575db1d95635dbdb1892012e72aa716"
@@ -365,25 +367,6 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         st.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
         
 
-from st_aggrid import AgGrid, GridOptionsBuilder
-
-# GridOptionsBuilder ile tabloların özelliklerini ayarlıyoruz
-gb = GridOptionsBuilder.from_dataframe(result_display)
-gb.configure_pagination(paginationPageSize=10)  # Sayfada gösterilecek satır sayısı
-gb.configure_side_bar()  # Yan menüyü açabiliriz
-grid_options = gb.build()
-
-# AgGrid ile tabloyu görüntülüyoruz
-AgGrid(result_display, gridOptions=grid_options, height=400, fit_columns_on_grid_load=True)
-
-
-
-
-
-
-
-
-
         # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
         result['Saat'] = result['Saat'].astype(str)  # Saat kolonunun string olduğunu varsayıyoruz
 
@@ -394,7 +377,13 @@ result_sorted = result.sort_values('Saat')
 st.line_chart(result_sorted.set_index('Saat')['predicted_rentals'])
 
 
-
+# Grafik ile tahminleri göstermek
+plt.figure(figsize=(10,6))
+sns.lineplot(data=result_display, x='Tarih saat', y='Tahmin', hue='Mevsim')
+plt.title('Tahmin Edilen Bisiklet Kiralama Sayıları')
+plt.xticks(rotation=45)
+plt.tight_layout()
+st.pyplot(plt)
 
 # Add background image styling at the end
 background_image = "path_to_your_image.jpg"  # Replace with local file path
