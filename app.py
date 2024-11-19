@@ -17,7 +17,7 @@ final_model = joblib.load('bike_rentals_model.pkl')
 ##########################################################################################
 ########## Sayfa Düzeni
 st.set_page_config(layout="wide", page_title="pabsrentalsaky", page_icon="🚲")
-text_col, image_col = st.columns(2)   #sayfayı ikiye böldük ;)
+text_col, image_col = st.columns([0.7, 0.3])   #sayfayı ikiye böldük ;)
 
 ##########################################################################################
 ########## Müzik
