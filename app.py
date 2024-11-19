@@ -310,32 +310,10 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         result['Saat'] = result['Saat'].astype(str)  # Saat kolonunun string olduğunu varsayıyoruz
 
 # Grafik için veriyi hazırlıyoruz
-fig = px.line(result, x='hr', y='predicted_rentals', 
-              labels={'hr': 'Saatler', 'predicted_rentals': 'Tahmin Edilen Kiralama Sayısı'},
-              title='Saat Bazında Tahmin Edilen Bisiklet Kiralama Sayıları',
-              line_shape='linear',  # Grafik çizgi tipi
-              markers=True)  # Veri noktalarını göstermek için
+result_sorted = result.sort_values('Saat')
 
-# Y ekseninin daha iyi görünmesi için başlık ve eksen ayarları
-fig.update_layout(
-    xaxis_title="Saatler",
-    yaxis_title="Tahmin Edilen Kiralama Sayısı",
-    template="plotly_dark",  # Grafiğe karanlık tema eklemek isterseniz
-    plot_bgcolor='rgba(0,0,0,0)'  # Arka planı saydam yapmak
-)
-
-# Grafiği Streamlit ile yazdırıyoruz
-st.plotly_chart(fig)
-
-# Kullanıcıya hava durumu bilgisi ve animasyon önerisi
-# Streamlit ile hava durumu ve saat bilgisi gösterme
-if result is not None:
-    st.markdown(f"""
-        <div style="text-align: center; font-size: 24px;">
-            <strong>Hava Durumu:</strong> {result['Hava'].iloc[0]}<br>
-            <strong>Güncel Saat:</strong> {result['Saat'].iloc[0]}<br>
-        </div>
-    """, unsafe_allow_html=True)
+# Saat değişkenini X eksenine, Tahmin edilen kiralama sayısını Y eksenine koyuyoruz
+st.line_chart(result_sorted.set_index('Saat')['predicted_rentals'])
 
 
 
