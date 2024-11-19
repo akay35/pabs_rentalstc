@@ -77,13 +77,13 @@ st.sidebar.markdown(
 
 st.markdown("""
     <style>
-        /* Arka plan rengi */
+        /* Sayfa genel arka plan rengi */
         body {
-            background-color: #e3f2f1; /* Hafif su yeşili */
-            color: #2f4f4f; /* Koyu yeşil-gri */
+            background-color: #e3f2f1 !important; /* Su yeşili */
+            color: #2f4f4f !important; /* Koyu yeşil-gri yazı */
         }
-        
-        /* Başlık rengi */
+
+        /* Başlıkların rengi */
         h1, h2, h3, h4, h5, h6 {
             color: #4caf50; /* Doğal yeşil */
         }
@@ -95,7 +95,7 @@ st.markdown("""
             color: #2f4f4f;
         }
 
-        /* Sunum odaklı butonlar */
+        /* Butonların stilini özelleştirme */
         .stButton>button {
             background-color: #81c784; /* Doğal yeşil buton */
             color: white;
@@ -109,16 +109,27 @@ st.markdown("""
             background-color: #66bb6a;
         }
 
-        /* Çizim ve grafiklerin arka planı */
+        /* Grafiklerin arka planı */
         .stPlotlyChart {
             background-color: #ffffff; /* Beyaz arka plan */
             border-radius: 8px;
             padding: 10px;
         }
-        
+
+        /* Grafik başlıkları ve eksen başlıkları */
+        .plotly .main-title {
+            color: #4caf50;
+        }
+
+        .plotly .xaxis-title {
+            color: #4caf50;
+        }
+
+        .plotly .yaxis-title {
+            color: #4caf50;
+        }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 
