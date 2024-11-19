@@ -233,19 +233,43 @@ season_str = {
 }
 
 # Streamlit butonu ve sonuç gösterimi
-if st.button("🚴‍♂️ Tahmin Yap"):
-    result = make_predictions(city)
-    if result is not None:
-        # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
-        result['Gün'] = result['weekday'].map(weekday_str)
-        result['Mevsim'] = result["season"].map(season_str)
-        result['Tahmin'] = np.round(result['predicted_rentals']).astype(int)
-        result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
-        result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
+# if st.button("🚴‍♂️ Tahmin Yap"):
+#     result = make_predictions(city)
+#     if result is not None:
+#         # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
+#         result['Gün'] = result['weekday'].map(weekday_str)
+#         result['Mevsim'] = result["season"].map(season_str)
+#         result['Tahmin'] = np.round(result['predicted_rentals']).astype(int)
+#         result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
+#         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
-        # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
+#         # Dataframe'i Streamlit ile yazdırıyoruz
+#         st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
       
+
+with st.container():
+    st.markdown('<div class="button-center">', unsafe_allow_html=True)
+    if st.button("🚴‍♂️ Tahmin Yap"):
+        result = make_predictions(city)
+        if result is not None:
+            # 'weekday' sütununu kısaltmalarla değiştiriyoruz ve yeni bir 'weekdays' sütunu oluşturuyoruz
+            result['Gün'] = result['weekday'].map(weekday_str)
+            result['Mevsim'] = result["season"].map(season_str)
+            result['Tahmin'] = np.round(result['predicted_rentals']).astype(int)
+            result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
+            result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
+
+            # Dataframe'i Streamlit ile yazdırıyoruz
+            st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+
+
+
+
+
+
 # Kullanıcıya hava durumu bilgisi ve animasyon önerisi
 # Streamlit ile hava durumu ve saat bilgisi gösterme
 if result is not None:
