@@ -156,8 +156,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-if st.sidebar.button("🚲 Bisiklet Kiralama"):
-    st.write("Amaç sayfasına yönlendiriliyorsunuz.")
 
 # Kullanıcıdan şehir adı al
 city = st.text_input("Şehir adını giriniz", "Izmir")
