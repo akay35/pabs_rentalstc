@@ -355,10 +355,12 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         result['Çalışma'] = result['workingday'].map({1: 'Evet', 0: 'Hayır'})
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
-        # Dataframe'i Streamlit ile yazdırıyoruz
-        # st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
+        # Tabloyu uygun şekilde Streamlit ile yazdırıyoruz
         result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
-        text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
+        
+        # Text column içinde tabloyu doğru şekilde göstermek
+        text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
+        text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
         
 
         # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
