@@ -53,7 +53,7 @@ def add_music_player():
 
 with image_col:
     # image_col.title("🎵 Every Ride Tells a Story!")
-    image_col.image("WhatsApp Image 2024-11-19 at 15.00.44 (1)", use_column_width=True)
+    # image_col.image("WhatsApp Image 2024-11-19 at 15.00.44 (1)", use_column_width=True)
     image_col.markdown("<h1 style='font-size: 24px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
 
