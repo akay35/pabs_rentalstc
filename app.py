@@ -51,15 +51,6 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-
-# Kullanıcıya GIF göstermek için aşağıdaki kodu ekliyoruz
-st.markdown("""
-    <div class="gif-container">
-        <iframe src="https://giphy.com/embed/LpvC3GFtj0fuaP44T9" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        <p><a href="https://giphy.com/gifs/AlexRiderTV-alex-rider-alexrider-alexridertv-LpvC3GFtj0fuaP44T9">via GIPHY</a></p>
-    </div>
-""", unsafe_allow_html=True)
-
 def get_season(month):
     if month in [12, 1, 2]:
         return 1  # Kış
@@ -232,7 +223,7 @@ season_str = {
 4: "Snbhr"
 }
 
-Streamlit butonu ve sonuç gösterimi
+# Streamlit butonu ve sonuç gösterimi
 if st.button("🚴‍♂️ Tahmin Yap"):
     result = make_predictions(city)
     if result is not None:
@@ -246,10 +237,6 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         # Dataframe'i Streamlit ile yazdırıyoruz
         st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
       
-
-
-
-
 # Kullanıcıya hava durumu bilgisi ve animasyon önerisi
 # Streamlit ile hava durumu ve saat bilgisi gösterme
 if result is not None:
