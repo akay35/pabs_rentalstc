@@ -53,15 +53,6 @@ def add_music_player():
     # Streamlit uygulamasında HTML'yi ekleyin
     st.components.v1.html(html_code, height=300)
 
-# with image_col:
-#     # image_col.title("🎵 Every Ride Tells a Story!")
-#     image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
-#     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
-# image_col.markdown("<p style='font-size: 18px; color: #8B4513; font-style: italic;'>Model tahmininde kullanılan veri seti 2011 ve 2012 yılları arasında Capital bisiklet paylaşım sistemindeki saatlik kiralık bisiklet sayısını, hava durumu, mevsimsel bilgiler ve haftanın günlerine göre çalışma ve tatil durumu bilgilerini içerir. Bu veri seti 17379 satır ve 17 sütun özellik içermektedir. Doğrulama, overfitting, hata analizi ve genellenebilirlik kontrolleri sonrası modelin başarı oranı %96 olarak ölçülmüştür.</p>", unsafe_allow_html=True)
-
-#     image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>As you pedal through life, each ride becomes part of your story. 🎶</p>", unsafe_allow_html=True)
-#     image_col.image("cyclist-pedaling-through-tunnel-autumn-trees_693425-33036.jpg", width=600)
-
 with image_col:
     # Başlık
     image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
@@ -70,13 +61,17 @@ with image_col:
     add_music_player() 
     
     # Model hakkında bilgi metni
-    image_col.markdown("<p style='font-size: 18px; color: #8B4513; font-style: italic;'>Model tahmininde kullanılan veri seti 2011 ve 2012 yılları arasında Capital bisiklet paylaşım sistemindeki saatlik kiralık bisiklet sayısını, hava durumu, mevsimsel bilgiler ve haftanın günlerine göre çalışma ve tatil durumu bilgilerini içerir. Bu veri seti 17379 satır ve 17 sütun özellik içermektedir. Doğrulama, overfitting, hata analizi ve genellenebilirlik kontrolleri sonrası modelin başarı oranı %96 olarak ölçülmüştür.</p>", unsafe_allow_html=True)
-    
-    # Yine ek metin
-    image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>As you pedal through life, each ride becomes part of your story. 🎶</p>", unsafe_allow_html=True)
+    image_col.markdown("<p style='font-size: 18px; color: #8B4513; font-style: italic;'>Model tahmininde kullanılan veri seti 2011 ve 2012 yılları arasında Capital bisiklet paylaşım sistemindeki saatlik kiralık bisiklet sayısı, hava durumu, mevsimsel bilgiler ve haftanın günlerine göre çalışma ve tatil durumu bilgilerini içerir. Bu veri seti 17379 satır ve 17 sütun özellik içermektedir. Doğrulama, overfitting, hata analizi ve genellenebilirlik kontrolleri sonrası modelin başarı oranı %96 olarak ölçülmüştür.</p>", unsafe_allow_html=True)
     
     # Görsel
     image_col.image("cyclist-pedaling-through-tunnel-autumn-trees_693425-33036.jpg", width=600)
+
+    # Yine ek metin
+    image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>As you pedal through life, each ride becomes part of your story. 🎶</p>", unsafe_allow_html=True)
+    image_col.markdown("<p style='font-size: 15px; color: #808080; font-style: italic;'>Akay AYDIN</p>", unsafe_allow_html=True)
+    image_col.markdown("<p style='font-size: 15px; color: #808080; font-style: italic;'>Berna ERSARI</p>", unsafe_allow_html=True)
+    image_col.markdown("<p style='font-size: 15px; color: #808080; font-style: italic;'>Pelin SAYAR</p>", unsafe_allow_html=True)
+    image_col.markdown("<p style='font-size: 15px; color: #808080; font-style: italic;'>Semra Konancı KELEŞ</p>", unsafe_allow_html=True)
 
 ##########################################################################################
 ########## Sidebar
