@@ -377,14 +377,6 @@ result_sorted = result.sort_values('Saat')
 st.line_chart(result_sorted.set_index('Saat')['predicted_rentals'])
 
 
-# Grafik ile tahminleri göstermek
-plt.figure(figsize=(10,6))
-sns.lineplot(data=result_display, x='Tarih saat', y='Tahmin', hue='Mevsim')
-plt.title('Tahmin Edilen Bisiklet Kiralama Sayıları')
-plt.xticks(rotation=45)
-plt.tight_layout()
-st.pyplot(plt)
-
 # Add background image styling at the end
 background_image = "path_to_your_image.jpg"  # Replace with local file path
 st.markdown(f"""
