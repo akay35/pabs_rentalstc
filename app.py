@@ -18,55 +18,6 @@ final_model = joblib.load('bike_rentals_model.pkl')
 # city = st.text_input("Şehir Adı", "Izmir")
 
 
-st.markdown("""
-    <style>
-        .title {
-            font-size: 36px;
-            font-weight: bold;
-            color: #3E8E41;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-        }
-        .subtitle {
-            font-size: 20px;
-            color: #6A9E3F;
-            text-align: center;
-            font-style: italic;
-            font-family: 'Arial', sans-serif;
-        }
-        /* Dinamik Arka Plan Animasyonu */
-        body {
-            animation: changeBackground 20s infinite;
-            background-size: cover;
-            background-position: right top; /* Sağ üst köşe */  
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding-top: 20%;
-            color: white;
-            margin: 0;
-            height: 100vh;
-            z-index: -1; /* Arka planın ön planda olmasını sağlar */
-        }
-
-        @keyframes changeBackground {
-            0% {
-                background-image: url('https://www.w3schools.com/w3images/fjords.jpg'); /* Güneşli hava */
-            }
-            25% {
-                background-image: url('https://www.w3schools.com/w3images/mountains.jpg'); /* Bulutlu hava */
-            }
-            50% {
-                background-image: url('https://www.w3schools.com/w3images/forest.jpg'); /* Yağmurlu hava */
-            }
-            75% {
-                background-image: url('https://www.w3schools.com/w3images/forest.jpg'); /* Sisli hava */
-            }
-            100% {
-                background-image: url('https://www.w3schools.com/w3images/fjords.jpg'); /* Güneşli hava */
-            }
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 st.markdown("""
     <style>
