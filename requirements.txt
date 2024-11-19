@@ -5,5 +5,3 @@ scikit-learn
 lightgbm
 joblib
 requests
-matplotlib.pyplot
-seaborn
