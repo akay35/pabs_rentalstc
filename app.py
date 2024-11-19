@@ -57,6 +57,9 @@ with image_col:
     # image_col.title("🎵 Every Ride Tells a Story!")
     image_col.markdown("<h1 style='font-size: 28px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
+image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>Model tahmininde kullanılan veri seti 2011 ve 2012 yılları arasında Capital bisiklet paylaşım sistemindeki saatlik
+kiralık bisiklet sayısını, hava durumu, mevsimsel bilgiler ve haftanın günlerine göre çalışma ve taatil durumu bilgilerini içerir.
+Bu veri seti 17379 satır ve 17 sütun özellik içermektedir. </p>", unsafe_allow_html=True)
     image_col.markdown("<p style='font-size: 18px; color: #808080; font-style: italic;'>As you pedal through life, each ride becomes part of your story. 🎶</p>", unsafe_allow_html=True)
     image_col.image("cyclist-pedaling-through-tunnel-autumn-trees_693425-33036.jpg", width=600)
 
