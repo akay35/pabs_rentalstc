@@ -5,8 +5,6 @@ from datetime import datetime, timedelta
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # API Anahtarları
 WEATHER_API_KEY = "9575db1d95635dbdb1892012e72aa716"
