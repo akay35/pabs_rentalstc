@@ -310,8 +310,8 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         result['Saat'] = result['Saat'].astype(str)  # Saat kolonunun string olduğunu varsayıyoruz
 
 # Grafik için veriyi hazırlıyoruz
-fig = px.line(result, x='Saat', y='predicted_rentals', 
-              labels={'Saat': 'Saatler', 'predicted_rentals': 'Tahmin Edilen Kiralama Sayısı'},
+fig = px.line(result, x='hr', y='predicted_rentals', 
+              labels={'hr': 'Saatler', 'predicted_rentals': 'Tahmin Edilen Kiralama Sayısı'},
               title='Saat Bazında Tahmin Edilen Bisiklet Kiralama Sayıları',
               line_shape='linear',  # Grafik çizgi tipi
               markers=True)  # Veri noktalarını göstermek için
