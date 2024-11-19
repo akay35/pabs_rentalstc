@@ -402,7 +402,6 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         # Text column içinde tabloyu doğru şekilde göstermek
         # text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
         text_col.markdown("<h3 style='color: #FF5733;'>🔮 Tahmin Edilen Bisiklet Kiralama Sayıları 🔮</h3>", unsafe_allow_html=True)
-            if result is not None:
         plot_predictions_by_hour(result)
         
 plot_predictions_by_hour(result)
