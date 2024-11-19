@@ -396,7 +396,8 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
         
         # Text column içinde tabloyu doğru şekilde göstermek
         # text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
-        text_col.markdown("<h3 style='color: #FF5733;'>🔮 Tahmin Edilen Bisiklet Kiralama Sayıları 🔮</h3>", unsafe_allow_html=True)
+        text_col.markdown("<h3 style='color: #D1B19D;'>🔮 Tahmin Edilen Bisiklet Kiralama Sayıları</h3>", unsafe_allow_html=True)
+        text_col.markdown("<p style='font-size: 15px; color: #808080; font-style: italic;'>Aşağıdaki tablodaki özellikler ve değerler, butona basıldığında güncellenir ve bu verilere dayanarak bisiklet kiralama tahmin sayısı hesaplanır.</p>", unsafe_allow_html=True)
         text_col.dataframe(result_display)  # Burada tabloyu Streamlit ile görselleştiriyoruz
         
 plot_predictions_by_hour(result)
