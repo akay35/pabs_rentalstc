@@ -103,71 +103,32 @@ st.sidebar.markdown(
 
 st.markdown("""
     <style>
-        /* Sayfa genel arka plan rengi */
-        body {
-            background-color: #e3f2f1 !important; /* Su yeşili */
-            color: #2f4f4f !important; /* Koyu yeşil-gri yazı */
-        }
+    /* Ana sayfanın arka plan rengini değiştir */
+    .stApp {
+        background: linear-gradient(to right, #ffecd2, #fcb69f);
+        color: #ffffff;
+    }
 
-        /* Başlıkların rengi */
-        h1, h2, h3, h4, h5, h6 {
-            color: #4caf50; /* Doğal yeşil */
-        }
+    /* Başlıklar için stil */
+    h1, h2, h3, h4, h5, h6 {
+        color: #4caf50; /* Doğal yeşil */
+    }
 
-        /* Yazı fontu */
-        .css-18e3th9 {
-            font-family: 'Arial', sans-serif;
-            font-weight: normal;
-            color: #2f4f4f;
-        }
+    /* Butonların stilini özelleştirme */
+    .stButton>button {
+        background-color: #81c784;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Butonların stilini özelleştirme */
-        .stButton>button {
-            background-color: #81c784; /* Doğal yeşil buton */
-            color: white;
-            border-radius: 5px;
-            border: none;
-            padding: 10px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .stButton>button:hover {
-            background-color: #66bb6a;
-        }
-
-        /* Grafiklerin arka planı */
-        .stPlotlyChart {
-            background-color: #ffffff; /* Beyaz arka plan */
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        /* Grafik başlıkları ve eksen başlıkları */
-        .plotly .main-title {
-            color: #4caf50;
-        }
-
-        .plotly .xaxis-title {
-            color: #4caf50;
-        }
-
-        .plotly .yaxis-title {
-            color: #4caf50;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-
-st.markdown(
-    """
-    <style>
-    body {
-        background: linear-gradient(to right, #ffecd2, #fcb69f, #d4a5a5); /* Yumuşak pembe, somon, kırmızımsı tonlar */
-        color: #ffffff; /* Yazı rengi beyaz */
+    .stButton>button:hover {
+        background-color: #66bb6a;
     }
     </style>
-    """, unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
 st.markdown("""
     <style>
