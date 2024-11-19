@@ -39,9 +39,9 @@ soundcloud_iframe = """<iframe width="100%" height="200" scrolling="no" framebor
 # Sayfa başlığı
 image_col.title("🎵 Every Ride Tells a Story!")
 
-# HTML ve CSS için bir stil bloğu
+# HTML ve CSS için bir stil bloğu  #bottom: 10px; right: 10px; 
 html_code = """
-<div style="position: fixed; bottom: 10px; right: 10px; width: 300px; height: 300px;">
+<div style="position: fixed; width: 100%; height: 300px; margin-top: 20px">
     {iframe}
 </div>
 """.format(iframe=soundcloud_iframe)
