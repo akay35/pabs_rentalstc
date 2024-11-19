@@ -364,6 +364,26 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
         st.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
         
+
+from st_aggrid import AgGrid, GridOptionsBuilder
+
+# GridOptionsBuilder ile tabloların özelliklerini ayarlıyoruz
+gb = GridOptionsBuilder.from_dataframe(result_display)
+gb.configure_pagination(paginationPageSize=10)  # Sayfada gösterilecek satır sayısı
+gb.configure_side_bar()  # Yan menüyü açabiliriz
+grid_options = gb.build()
+
+# AgGrid ile tabloyu görüntülüyoruz
+AgGrid(result_display, gridOptions=grid_options, height=400, fit_columns_on_grid_load=True)
+
+
+
+
+
+
+
+
+
         # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
         result['Saat'] = result['Saat'].astype(str)  # Saat kolonunun string olduğunu varsayıyoruz
 
