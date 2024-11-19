@@ -22,30 +22,33 @@ st.set_page_config(layout="wide", page_title="pabsrentalsaky", page_icon="🚲")
 st.experimental_set_query_params(auto_refresh=False)
 text_col, image_col = st.columns([0.6, 0.4])   #sayfayı ikiye böldük ;)
 
+counter_file = 'visitor_count.csv'
+
 # Oturum kontrolü
 if "visited" not in st.session_state:
     st.session_state["visited"] = False
 
-# Sayaç fonksiyonu
-def update_visitor_count(file_path='visitor_count.csv'):
+def update_visitor_count():
     try:
-        df = pd.read_csv(file_path)
+        # Sayaç dosyasını oku
+        df = pd.read_csv(counter_file)
     except FileNotFoundError:
+        # Dosya yoksa sayaç başlat
         df = pd.DataFrame({'count': [0]})
 
-    # Eğer oturumda ilk kez ziyaret ediliyorsa sayaç artışı yap
+    # Oturumda sayaç artışı yapmadıysak artır
     if not st.session_state["visited"]:
         df['count'] += 1
-        df.to_csv(file_path, index=False)
-        st.session_state["visited"] = True  # Ziyaret edildiği işaretlenir
+        st.session_state["visited"] = True  # Ziyaret edildi işaretleniyor
+        df.to_csv(counter_file, index=False)
     return df['count'].iloc[0]
 
-# Sayaç güncelleniyor
+# Sayaç değeri
 visitor_count = update_visitor_count()
 
-# Streamlit arayüzü
+# Uygulama arayüzü
 st.title("Ziyaretçi Sayacı")
-st.write(f"Bu sayfa {visitor_count} kez ziyaret edildi.")
+st.write(f"Bu sayfa toplamda **{visitor_count}** kez ziyaret edildi.")
 
 ##########################################################################################
 ########## Müzik
