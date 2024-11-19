@@ -302,8 +302,13 @@ if st.button("🚴‍♂️ Tahmin Yap"):
         result['Tatil'] = result['holiday'].map({1: 'Evet', 0: 'Hayır'})
 
         # Dataframe'i Streamlit ile yazdırıyoruz
-        st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
-      
+        # st.dataframe(result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']], use_container_width=True)
+        result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
+        st.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**", result_display)
+        
+        # Ekstra: Sonuçları bir grafikle görselleştirebiliriz
+        st.line_chart(result['predicted_rentals'])
+
 # Kullanıcıya hava durumu bilgisi ve animasyon önerisi
 # Streamlit ile hava durumu ve saat bilgisi gösterme
 if result is not None:
@@ -313,6 +318,8 @@ if result is not None:
             <strong>Güncel Saat:</strong> {result['Saat'].iloc[0]}<br>
         </div>
     """, unsafe_allow_html=True)
+
+
 
 
 # Add background image styling at the end
