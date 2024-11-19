@@ -38,7 +38,7 @@ st.markdown("""
         body {
             animation: changeBackground 20s infinite;
             background-size: cover;
-            background-position: center;
+            background-position: right top; /* Sağ üst köşe */  
             font-family: 'Arial', sans-serif;
             text-align: center;
             padding-top: 20%;
