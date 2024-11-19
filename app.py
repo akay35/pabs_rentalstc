@@ -29,25 +29,27 @@ final_model = joblib.load('bike_rentals_model.pkl')
 
 
 # SoundCloud müzik linki
-# SoundCloud müzik linki
+
+# SoundCloud embed kodu
 soundcloud_iframe = """
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/226534207&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/edgar-poe-665232219" title="edgar poe, wsea" target="_blank" style="color: #cccccc; text-decoration: none;">edgar poe, wsea</a> · <a href="https://soundcloud.com/edgar-poe-665232219/its-a-beautiful-day-white-bird" title="It&#x27;s A Beautiful Day - White Bird" target="_blank" style="color: #cccccc; text-decoration: none;">It&#x27;s A Beautiful Day - White Bird</a></div>
+<iframe width="100%" height="300" scrolling="no" frameborder="no" 
+    allow="autoplay" 
+    src="https://soundcloud.com/edgar-poe-665232219/its-a-beautiful-day-white-bird?si=b60adc8088de41fd856c6ee67a0afcae&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+</iframe>
 """
 
-# Sayfa başlığı ve açıklama
-st.title("🎵 Sürüş için Rahatlatıcı Müzik")
-st.markdown("Bisiklet sürüşünüze eşlik edecek huzurlu bir gitar melodisi.")
+# Sayfa başlığı
+st.title("🎵 Bisiklet Sürüşüne Uygun Müzik")
 
-# CSS ve HTML ile sağ alt köşeye yerleştirme
-st.markdown(soundcloud_iframe, unsafe_allow_html=True)
+# HTML ve CSS için bir stil bloğu
+html_code = """
+<div style="position: fixed; bottom: 10px; right: 10px; width: 300px; height: 300px;">
+    {iframe}
+</div>
 """.format(iframe=soundcloud_iframe)
 
-# Sayfa başlığı ve açıklama
-st.title("🎵 Sürüş için Rahatlatıcı Müzik")
-st.markdown("Bisiklet sürüşünüze eşlik edecek huzurlu bir gitar melodisi.")
-
-# CSS ile özelleştirilmiş HTML ekleme
-st.markdown(custom_css, unsafe_allow_html=True)
+# Streamlit uygulamasında HTML'yi ekleyin
+st.components.v1.html(html_code, height=400)
 ##########################################################################################
 
 # Streamlit Arayüzü
