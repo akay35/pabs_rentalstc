@@ -19,7 +19,12 @@ final_model = joblib.load('bike_rentals_model.pkl')
 ##########################################################################################
 ########## Sayfa Düzeni
 st.set_page_config(layout="wide", page_title="pabsrentalsaky", page_icon="🚲")
+st.experimental_set_query_params(auto_refresh=False)
 text_col, image_col = st.columns([0.6, 0.4])   #sayfayı ikiye böldük ;)
+
+# Oturum kontrolü
+if "visited" not in st.session_state:
+    st.session_state["visited"] = False
 
 # Sayaç fonksiyonu
 def update_visitor_count(file_path='visitor_count.csv'):
@@ -27,8 +32,12 @@ def update_visitor_count(file_path='visitor_count.csv'):
         df = pd.read_csv(file_path)
     except FileNotFoundError:
         df = pd.DataFrame({'count': [0]})
-    df['count'] += 1
-    df.to_csv(file_path, index=False)
+
+    # Eğer oturumda ilk kez ziyaret ediliyorsa sayaç artışı yap
+    if not st.session_state["visited"]:
+        df['count'] += 1
+        df.to_csv(file_path, index=False)
+        st.session_state["visited"] = True  # Ziyaret edildiği işaretlenir
     return df['count'].iloc[0]
 
 # Sayaç güncelleniyor
