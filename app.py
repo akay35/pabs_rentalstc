@@ -43,16 +43,17 @@ def add_music_player():
 
     # HTML ve CSS için bir stil bloğu
     html_code = """
-    <div style="position: fixed; width: 300px; height: 300px; margin-top: 20px">
+    <div style="position: fixed; width: 400px; height: 300px; margin-top: 20px">
         {iframe}
     </div>
     """.format(iframe=soundcloud_iframe)
 
     # Streamlit uygulamasında HTML'yi ekleyin
-    st.components.v1.html(html_code, height=400)
+    st.components.v1.html(html_code, height=300)
 
 with image_col:
-    image_col.title("🎵 Every Ride Tells a Story!")
+    # image_col.title("🎵 Every Ride Tells a Story!")
+    image_col.markdown("<h1 style='font-size: 24px;'>🎵 Every Ride Tells a Story!</h1>", unsafe_allow_html=True)
     add_music_player()  # Müzik çalar fonksiyonunu çağırıyoruz
 
 ##########################################################################################
