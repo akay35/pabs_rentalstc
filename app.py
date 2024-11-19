@@ -75,6 +75,53 @@ st.sidebar.markdown(
 )
 
 
+st.markdown("""
+    <style>
+        /* Arka plan rengi */
+        body {
+            background-color: #e3f2f1; /* Hafif su yeşili */
+            color: #2f4f4f; /* Koyu yeşil-gri */
+        }
+        
+        /* Başlık rengi */
+        h1, h2, h3, h4, h5, h6 {
+            color: #4caf50; /* Doğal yeşil */
+        }
+
+        /* Yazı fontu */
+        .css-18e3th9 {
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            color: #2f4f4f;
+        }
+
+        /* Sunum odaklı butonlar */
+        .stButton>button {
+            background-color: #81c784; /* Doğal yeşil buton */
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stButton>button:hover {
+            background-color: #66bb6a;
+        }
+
+        /* Çizim ve grafiklerin arka planı */
+        .stPlotlyChart {
+            background-color: #ffffff; /* Beyaz arka plan */
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+    </style>
+""", unsafe_allow_html=True)
+
+
+
+
 st.markdown(
     """
     <style>
