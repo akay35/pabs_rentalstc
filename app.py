@@ -43,7 +43,7 @@ def add_music_player():
 
     # HTML ve CSS için bir stil bloğu
     html_code = """
-    <div style="position: fixed; width: 500px; height: 300px; margin-top: 20px">
+    <div style="position: fixed; width: 300px; height: 300px; margin-top: 20px">
         {iframe}
     </div>
     """.format(iframe=soundcloud_iframe)
