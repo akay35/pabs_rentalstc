@@ -75,6 +75,10 @@ with image_col:
 
 ##########################################################################################
 ########## Sidebar
+st.logo(
+    icon_image="pngwing.com.png",
+    size="large"
+    )
 
 # st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 # st.sidebar.write("Amaç:")
