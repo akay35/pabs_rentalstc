@@ -399,7 +399,6 @@ if text_col.button("🚴‍♂️ Tahmin Yap"):
 
         # Tabloyu uygun şekilde Streamlit ile yazdırıyoruz
         result_display = result[["Tarih saat", "Saat", "Mevsim", "Gün", "Çalışma", "Tatil", 'Sıcaklık', 'Nem', 'Rüzgar', "Hava", 'Tahmin']]
-        
         # Text column içinde tabloyu doğru şekilde göstermek
         # text_col.write("🔮 **Tahmin Edilen Bisiklet Kiralama Sayıları**")
         text_col.markdown("<h3 style='color: #FF5733;'>🔮 Tahmin Edilen Bisiklet Kiralama Sayıları 🔮</h3>", unsafe_allow_html=True)
