@@ -66,9 +66,6 @@ st.components.v1.html(html_code, height=400)
 
 # st.sidebar.write("Sürdürülebilir Ulaşımın Teşviki: Bisiklet kullanımı, çevre dostu ulaşım seçenekleri sunarak karbon ayak izinin azaltılmasına yardımcı olabilir. Bu model, şehir içi ulaşımda bisiklet kullanımını teşvik etmek amacıyla stratejik kararlar almada yardımcı olacaktır.")
 
-if st.sidebar.button("🚲 Bisiklet Kiralama"):
-    st.write("Butona tıklanarak işlem başlatıldı!")
-
 # Sidebar resmini ekleyin
 st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 
@@ -158,6 +155,9 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+if st.sidebar.button("🚲 Bisiklet Kiralama"):
+    st.write("Amaç sayfasına yönlendiriliyorsunuz.")
 
 # Kullanıcıdan şehir adı al
 city = st.text_input("Şehir adını giriniz", "Izmir")
