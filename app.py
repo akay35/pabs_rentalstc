@@ -75,10 +75,7 @@ with image_col:
 
 ##########################################################################################
 ########## Sidebar
-# st.logo(
-#     icon_image="pngwing.com.png",
-#     size="large"
-#     )
+st.logo("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", icon_image="pngwing.com.png", size="large")
 
 # st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 # st.sidebar.write("Amaç:")
@@ -95,7 +92,7 @@ with image_col:
 # st.sidebar.write("Sürdürülebilir Ulaşımın Teşviki: Bisiklet kullanımı, çevre dostu ulaşım seçenekleri sunarak karbon ayak izinin azaltılmasına yardımcı olabilir. Bu model, şehir içi ulaşımda bisiklet kullanımını teşvik etmek amacıyla stratejik kararlar almada yardımcı olacaktır.")
 
 # Sidebar resmini ekleyin
-st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
+# st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 
 st.sidebar.markdown(
     """
