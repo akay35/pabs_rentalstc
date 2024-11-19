@@ -36,7 +36,7 @@ final_model = joblib.load('bike_rentals_model.pkl')
 st.sidebar.image("Nature-autumn-background-with-red-trees-and-bike-vector-02.jpg", use_column_width=True)
 
 
-st.markdown(
+st.sidebar.markdown(
     """
     <style>
     .sidebar-content {
@@ -73,12 +73,6 @@ st.markdown(
     </div>
     """, unsafe_allow_html=True
 )
-
-
-
-
-
-
 
 st.markdown("""
     <style>
