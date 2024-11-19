@@ -311,7 +311,7 @@ if st.button("🚴‍♂️ Tahmin Yap"):
 
 # Grafik için veriyi hazırlıyoruz
 fig = px.line(result, x='Saat', y='predicted_rentals', 
-              labels={'Saat': 'Saatler', 'Tahmin': 'Tahmin Edilen Kiralama Sayısı'},
+              labels={'Saat': 'Saatler', 'predicted_rentals': 'Tahmin Edilen Kiralama Sayısı'},
               title='Saat Bazında Tahmin Edilen Bisiklet Kiralama Sayıları',
               line_shape='linear',  # Grafik çizgi tipi
               markers=True)  # Veri noktalarını göstermek için
